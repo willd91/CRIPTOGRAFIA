@@ -22,6 +22,19 @@ namespace CRIPTOGRAFIA
             _aInverso = InversoModular(a, 26);
         }
 
+        public void Setclave(int a, int b)
+        {
+            if (MaximoComunDivisor(a, 26) != 1)
+                throw new ArgumentException("'a' debe ser coprimo con 26.");
+
+            _a = a;
+            _b = b;
+            _aInverso = InversoModular(a, 26);
+        }
+        public string Getclave()
+        {
+            return "a="+_a+":"+"b="+_b+":Inverso="+_aInverso;
+        }
         // Cifrar texto
         public string Cifrar(string textoPlano)
         {

@@ -21,6 +21,7 @@ using System;
         this.tamaño = 4;
         this.texto = "hola mundo";     
         this.alfabeto = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ\r\n";
+        this.modulo = alfabeto.Length;
         this.clave_matriz = math.GenerarMatrizClaveInvertible(this.tamaño,alfabeto.Length);
     }
     public CifradoHill(int tamaño,string alfabeto)

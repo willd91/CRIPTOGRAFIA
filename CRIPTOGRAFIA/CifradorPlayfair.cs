@@ -9,6 +9,7 @@ namespace CRIPTOGRAFIA
     using System;
     using System.Text;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     public class CifradorPlayfair
     {
@@ -49,6 +50,7 @@ namespace CRIPTOGRAFIA
         // =====================================
         public string Cifrar(string textoPlano)
         {
+            textoPlano=EliminarCaracteresEspecialesRegex(textoPlano);
             // Preprocesar el texto de entrada
             textoPlano = PrepararTexto(textoPlano);
 
@@ -244,6 +246,19 @@ namespace CRIPTOGRAFIA
             }
 
             return textoProcesado.ToString();
+        }
+        public static string EliminarCaracteresEspecialesRegex(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+                return texto;
+
+            // Patrón que conserva:
+            // - Letras (mayúsculas y minúsculas, incluyendo acentuadas)
+            // - Números
+            // - Espacios
+            // - Signos de puntuación básicos (. , ; ¿? ¡!)
+            string patron = @"[^\w\sáéíóúÁÉÍÓÚñÑüÜ.,;¿?¡!]";
+            return Regex.Replace(texto, patron, "");
         }
     }
 }

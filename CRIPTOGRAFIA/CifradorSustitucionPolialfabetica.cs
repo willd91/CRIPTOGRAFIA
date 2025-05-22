@@ -64,5 +64,13 @@ namespace CRIPTOGRAFIA
             }
             return textoLimpio.ToString();
         }
+        public string GetClave()
+        {
+            return _clave;
+        }
+        public void SetClave(string clave)
+        {
+            _clave = clave.ToUpper(); // Normalizar la clave a mayúsculas
+        }
     }
 }
